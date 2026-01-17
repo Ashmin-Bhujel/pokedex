@@ -1,9 +1,9 @@
 import type { State } from "./state.js";
 
-export function startREPL(state: State) {
+export async function startREPL(state: State) {
   state.readline.prompt();
 
-  state.readline.on("line", (userInput) => {
+  state.readline.on("line", async (userInput) => {
     const words = cleanInput(userInput);
 
     // Return if there is no command
@@ -18,18 +18,22 @@ export function startREPL(state: State) {
 
     // Check if the command exists in registry
     if (!command) {
+      console.log("=========");
       console.log(
         `Unknown command: "${commandName}". Type "help" for a list of commands.`,
       );
+      console.log("=========");
       state.readline.prompt();
       return;
     }
 
     // Try to execute the command
     try {
-      command.callback(state);
+      await command.callback(state);
     } catch (error) {
-      console.log(error);
+      console.log("=========");
+      console.log((error as Error).message);
+      console.log("=========");
     }
     state.readline.prompt();
   });
