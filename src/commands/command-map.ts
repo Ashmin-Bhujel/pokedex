@@ -21,7 +21,9 @@ function printLocations(state: State, locations: ShallowLocations) {
   state.nextLocationsURL = locations.next;
   state.prevLocationsURL = locations.previous;
 
+  console.log("=========");
   for (const location of locations.results) {
     console.log(location.name);
   }
+  console.log("=========");
 }

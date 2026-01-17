@@ -1,5 +1,6 @@
 import { stdin, stdout } from "node:process";
-import { createInterface, type Interface } from "node:readline";
+import { createInterface } from "node:readline";
+import type { Interface } from "node:readline";
 import { getCommands } from "./commands/index.js";
 import { PokeAPI } from "./poke-api.js";
 

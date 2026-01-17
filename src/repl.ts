@@ -18,9 +18,11 @@ export async function startREPL(state: State) {
 
     // Check if the command exists in registry
     if (!command) {
+      console.log("=========");
       console.log(
         `Unknown command: "${commandName}". Type "help" for a list of commands.`,
       );
+      console.log("=========");
       state.readline.prompt();
       return;
     }
@@ -29,7 +31,9 @@ export async function startREPL(state: State) {
     try {
       await command.callback(state);
     } catch (error) {
+      console.log("=========");
       console.log((error as Error).message);
+      console.log("=========");
     }
     state.readline.prompt();
   });
