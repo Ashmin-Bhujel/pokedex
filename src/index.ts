@@ -2,7 +2,8 @@ import { startREPL } from "./repl.js";
 import { initState } from "./state.js";
 
 async function main() {
-  const state = initState();
+  const cacheInterval = 1000 * 60 * 5;
+  const state = initState(cacheInterval);
   await startREPL(state);
 }
 
