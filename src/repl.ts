@@ -5,6 +5,7 @@ export async function startREPL(state: State) {
 
   state.readline.on("line", async (userInput) => {
     const words = cleanInput(userInput);
+    const args = words.slice(1);
 
     // Return if there is no command
     if (words.length === 0) {
@@ -29,7 +30,7 @@ export async function startREPL(state: State) {
 
     // Try to execute the command
     try {
-      await command.callback(state);
+      await command.callback(state, ...args);
     } catch (error) {
       console.log("=========");
       console.log((error as Error).message);
