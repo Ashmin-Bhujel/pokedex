@@ -3,10 +3,10 @@ import type { State } from "../state.js";
 export async function commandPokedex(state: State) {
   const pokemons = Object.values(state.caughtPokemon);
 
-  console.log("=========");
+  console.log("---------");
   if (pokemons.length === 0) {
-    console.log("you haven't caught any pokemon yet");
-    console.log("=========");
+    console.log("You haven't caught any pokemon yet");
+    console.log("---------");
     return;
   }
 
@@ -15,5 +15,5 @@ export async function commandPokedex(state: State) {
     console.log(`- ${pokemon.name}`);
   }
 
-  console.log("=========");
+  console.log("---------");
 }
