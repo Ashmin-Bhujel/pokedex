@@ -16,8 +16,6 @@ export class PokeAPI {
     const url = pageURL || `${PokeAPI.baseURL}/location-area`;
     const cached = this.cache.get<ShallowLocations>(url);
     if (cached) {
-      console.log("=========");
-      console.log("Getting cached data");
       return cached;
     }
 
@@ -40,8 +38,6 @@ export class PokeAPI {
     const url = `${PokeAPI.baseURL}/location-area/${locationName}`;
     const cached = this.cache.get<Location>(url);
     if (cached) {
-      console.log("=========");
-      console.log("Getting cached data");
       return cached;
     }
 
@@ -66,8 +62,6 @@ export class PokeAPI {
     const url = `${PokeAPI.baseURL}/pokemon/${pokemonName}`;
     const cached = this.cache.get<Pokemon>(url);
     if (cached) {
-      console.log("=========");
-      console.log("Getting cached data");
       return cached;
     }
 
